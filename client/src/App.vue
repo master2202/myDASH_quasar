@@ -159,8 +159,14 @@ div[class*="col"] {
 .color-10 {
   color: #607d8b;
 }
+.color-11 {
+  color: rgb(255, 255, 0);
+}
 .color-12 {
   color: rgba(96, 125, 139, 0.7);
+}
+.color-13 {
+  color: #b3d7ff;
 }
 
 // BACKGROUND COLOR
@@ -177,7 +183,7 @@ div[class*="col"] {
   background-color: transparent;
 }
 .backgroundColor-1 {
-  background-color: #009688;
+  background-color: rgb(0, 150, 136);
 }
 .backgroundColor-2 {
   background-color: #202630;
@@ -211,6 +217,9 @@ div[class*="col"] {
 }
 .backgroundColor-12 {
   background-color: rgba(96, 125, 139, 0.5);
+}
+.backgroundColor-13 {
+  background-color: #b3d7ff;
 }
 
 // WIDTH
@@ -295,6 +304,9 @@ div[class*="col"] {
 }
 .height-177 {
   height: 177px;
+}
+.height-200 {
+  height: 200px;
 }
 .height-55 {
   height: 55px;
@@ -475,6 +487,10 @@ div[class*="col"] {
   margin-bottom: 15px;
 }
 // margin-horizontal
+.margin-horizontal-5 {
+  margin-left: 5px;
+  margin-right: 5px;
+}
 .margin-horizontal-10 {
   margin-left: 10px;
   margin-right: 10px;

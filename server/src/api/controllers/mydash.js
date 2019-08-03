@@ -15,6 +15,20 @@ exports.friends_list = async (req, res, next) => {
   });
 };
 
+// GET PEOPLE DATA
+exports.people_list = async (req, res, next) => {
+  console.log("PERSON: " + req.body.person);
+  const people = await Profile.find({ name: req.body.person }).select({
+    name: 1,
+    profile_1: 1
+  });
+  console.log("people");
+  res.status(200).json({
+    message: "Auth successful",
+    people: people
+  });
+};
+
 // GET PROFILE DATA
 exports.profile_data = async (req, res, next) => {
   const token = req.body.token;

@@ -18,6 +18,9 @@ export default {
   friendsList(params) {
     return Api().post("mydash/friends", params);
   },
+  peopleData(params) {
+    return Api().post("mydash/people", params);
+  },
   profileData(params) {
     return Api().post("mydash/profile", params);
   },

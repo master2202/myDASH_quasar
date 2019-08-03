@@ -18,3 +18,15 @@ export function account_edit_icon(state, getters, rootState) {
     state.account_edit_icon +
     ".svg");
 }
+export function account_name(state) {
+  return state.accName;
+  //return "account name";
+}
+export function account_email(state) {
+  return state.accEmail;
+  //return "account email";
+}
+export function account_password(state) {
+  return state.accPass;
+  // return "account password";
+}

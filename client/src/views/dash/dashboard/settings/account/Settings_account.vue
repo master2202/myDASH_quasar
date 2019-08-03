@@ -7,10 +7,10 @@
             <div class="col-12">
               <div class="container-fluid">
                 <div class="row justify-content-center margin-vertical-15">
-                  <div class="col-12 font-size-22">Account Name</div>
+                  <div class="col-12 font-size-22">account name</div>
                   <div
                     class="col-auto font-size-25 letter-spacing-2 color-snow b-color-dark-transparent"
-                  >Zoran Velickovic</div>
+                  >{{account_name}}</div>
                   <!-- <div class="col-12 padding-vertical-5">
                     <div class="container-fluid">
                       <div class="row justify-content-center">
@@ -26,10 +26,10 @@
             <div class="col-12">
               <div class="container-fluid">
                 <div class="row justify-content-center margin-vertical-15">
-                  <div class="col-12 font-size-22">Email</div>
+                  <div class="col-12 font-size-22">email</div>
                   <div
                     class="col-auto font-size-25 letter-spacing-2 color-snow b-color-dark-transparent overflow-auto"
-                  >master2202@live.com</div>
+                  >{{account_email}}</div>
                   <!-- <div class="col-12 padding-vertical-5">
                     <div class="container-fluid">
                       <div class="row justify-content-center">
@@ -45,10 +45,10 @@
             <div class="col-12 min-height-150">
               <div class="container-fluid">
                 <div class="row justify-content-center margin-vertical-15">
-                  <div class="col-12 font-size-22">Password</div>
+                  <div class="col-12 font-size-22">password</div>
                   <div
                     class="col-auto font-size-25 letter-spacing-2 color-snow b-color-dark-transparent"
-                  >master2202</div>
+                  >{{account_password}}</div>
                   <div
                     v-if="account_edit"
                     @click="account_update('password')"
@@ -74,11 +74,16 @@
 import { mapGetters, mapActions } from "vuex";
 export default {
   computed: {
-    ...mapGetters("settings_account", ["account_edit"])
+    ...mapGetters("settings_account", [
+      "account_edit",
+      "account_name",
+      "account_email",
+      "account_password"
+    ])
   },
   methods: {
     ...mapActions("settings_main", ["account_route"]),
-    ...mapActions("settings_account", ["account_update"])
+    ...mapActions("settings_account", ["account_update", "acc_reset"])
   },
   beforeRouteEnter(to, from, next) {
     next(vm => {
@@ -86,6 +91,7 @@ export default {
     });
   },
   beforeRouteLeave(to, from, next) {
+    this.acc_reset();
     this.account_route(false);
     next();
   }

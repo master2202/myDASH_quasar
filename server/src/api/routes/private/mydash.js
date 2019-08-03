@@ -5,20 +5,21 @@ const setTimeout = require("../../middleware/set_timeout");
 const mydashController = require("../../controllers/mydash");
 const welcomeController = require("../../controllers/welcome");
 
-// protected routes
+// verify account
 router.post(
   "/account/verify",
   setTimeout,
   checkAuth,
   welcomeController.account_verify
 );
+// update account password
 router.post(
   "/account/update",
   setTimeout,
   checkAuth,
   welcomeController.account_update
 );
-//
+// update profile data
 router.post("/profile", setTimeout, checkAuth, mydashController.profile_data);
 router.put(
   "/profile/update",
@@ -26,9 +27,9 @@ router.put(
   checkAuth,
   mydashController.profile_update
 );
-
+// get friends list
 router.post("/friends", setTimeout, checkAuth, mydashController.friends_list);
-// router.post("/", checkAuth, mydashController.friends_list);
-//router.put("/clock/update/:id", checkAuth, ClockController.update_clock);
+// get people data
+router.post("/people", setTimeout, checkAuth, mydashController.people_list);
 
 module.exports = router;

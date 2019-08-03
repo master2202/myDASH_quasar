@@ -1,7 +1,5 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-//import store from "../store/index";
-//import routes from "./routes";
 
 //import Store from "../store/index";
 import Welcome from "../views/Welcome.vue";
@@ -148,7 +146,6 @@ export default function({ store }) {
   });
 
   Router.beforeEach((to, from, next) => {
-    // Store.dispatch("run_myDash");
     // redirect to signin page if not logged in and trying to access a restricted page
     const publicPages = ["/welcome/signin", "/welcome/signup"];
     const restrictedPage = "/";
@@ -156,7 +153,7 @@ export default function({ store }) {
     store.state.isAuth = !publicPages.includes(to.path);
     const token = localStorage.getItem("token");
     const lang = localStorage.getItem("lang");
-    if ((store.state.isAuth && !token) || store.state.isRestricted) {
+    if ((store.state.isAuth && !token) || store.state.auth.isRestricted) {
       if (lang) {
         store.state.lang = lang;
       }

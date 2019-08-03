@@ -73,7 +73,7 @@ export async function account_update({ commit }, payload) {
 }
 
 // verify account
-export async function acc_verify({ state, commit }) {
+export async function acc_verify({ state, commit, rootState }) {
   state.accVerify = false;
   try {
     let outSideClick = true;
@@ -95,9 +95,13 @@ export async function acc_verify({ state, commit }) {
           console.log(res);
           commit("auth/SET_TOKEN", res.data.token, { root: true });
           state.accVerify = true;
+          state.accName = rootState.auth.userValue.name;
+          state.accEmail = rootState.auth.userValue.email;
+          state.accPass = document.getElementById("swal-input2").value;
           outSideClick = true;
         } catch (error) {
           setTimeout(() => {
+            state.accPass = null;
             commit("auth/SET_ERROR", error, { root: true });
           }, 0);
         }
@@ -108,4 +112,8 @@ export async function acc_verify({ state, commit }) {
       commit("auth/SET_ERROR", error, { root: true });
     }, 0);
   }
+}
+
+export function acc_reset({ commit }) {
+  commit("ACC_RESET");
 }

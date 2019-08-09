@@ -1,7 +1,7 @@
 // myDash_Background
 export function myDash_Background(state) {
   state.myDash_Background = Math.floor(Math.random() * 60);
-  state.myDash_Background = 60;
+  //state.myDash_Background = 60;
   return require("../../../assets/backgrounds/" +
     state.myDash_Background +
     ".jpg");

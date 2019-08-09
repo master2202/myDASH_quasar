@@ -14,6 +14,11 @@ export default {
   },
   dashBoard: {
     obj: null,
-    height: null
+    height: null,
+    width: null
+  },
+  personCard: {
+    obj: null,
+    width: null
   }
-}
+};

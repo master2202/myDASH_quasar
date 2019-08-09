@@ -36,20 +36,27 @@
       <div class="col-10 h-100 padding-none">
         <router-view />
       </div>
-      <div class="col-1 h-100 padding-none"></div>
+      <div class="col-1 h-100 padding-none">
+        <people-search-menu v-if="$route.name === 'search' && people_list" />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import PeopleSearchMenu from "./people/search/People_search_menu";
 import { mapGetters } from "vuex";
 export default {
+  components: {
+    PeopleSearchMenu
+  },
   computed: {
     ...mapGetters("people_main", [
       "post_outline_icon",
       "chat_outline_icon",
       "search_outline_icon"
-    ])
+    ]),
+    ...mapGetters("people_search", ["people_list"])
   }
 };
 </script>

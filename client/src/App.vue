@@ -168,6 +168,18 @@ div[class*="col"] {
 .color-13 {
   color: #b3d7ff;
 }
+.color-14 {
+  color: #141a1e;
+}
+.color-15 {
+  color: #6f8498b3;
+}
+.color-16 {
+  color: #adb5bd;
+}
+.color-17 {
+  color: #ffc107;
+}
 
 // BACKGROUND COLOR
 .b-color-snow-transparent {
@@ -220,6 +232,18 @@ div[class*="col"] {
 }
 .backgroundColor-13 {
   background-color: #b3d7ff;
+}
+.backgroundColor-14 {
+  background-color: #141a1e;
+}
+.backgroundColor-15 {
+  background-color: #6f8498b3;
+}
+.backgroundColor-16 {
+  background-color: #adb5bd;
+}
+.backgroundColor-17 {
+  background-color: #ffc107;
 }
 
 // WIDTH
@@ -453,6 +477,9 @@ div[class*="col"] {
   padding-top: 80px;
 }
 // padding-bottom
+.padding-bottom-5 {
+  padding-bottom: 5px;
+}
 .padding-bottom-10 {
   padding-bottom: 10px;
 }
@@ -577,6 +604,9 @@ div[class*="col"] {
 }
 .border-dark-3 {
   border: 3px solid rgba(0, 0, 0, 0.7);
+}
+.border-dark-5 {
+  border: 4px solid #141a1e;
 }
 
 // border-radius

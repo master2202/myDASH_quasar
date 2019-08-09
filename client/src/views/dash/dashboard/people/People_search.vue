@@ -2,9 +2,11 @@
   <div class="container-fluid h-100">
     <div class="row justify-content-center align-items-center" :style="{height:50 + 'px'}">
       <div v-if="people_list" class="col-12">
-        <div class="font-size-28 font-Expletus letter-spacing-2 color-8">
+        <div class="font-size-28 font-Expletus color-16">
           search result for:
-          <span class="color-11">{{person_input}}</span>
+          <span
+            class="color-17 backgroundColor-14 letter-spacing-2 border-radius-15 padding-horizontal-10 padding-vertical-5"
+          >{{person_input}}</span>
         </div>
       </div>
     </div>
@@ -59,41 +61,49 @@
         <div class="row justify-content-center">
           <div class="col-11">
             <div class="row justify-content-center padding-none">
-              <div class="col-12 col-xl-6" v-for="(item, index) in people_data" :key="index">
+              <div
+                :id="'personCard-' + index"
+                class="col-12 col-lg-6 col-xl-4 personCard"
+                v-for="(item, index) in people_data"
+                :key="index"
+              >
                 <div class="row margin-horizontal-5 margin-vertical-15">
                   <div
                     :style="{
                       borderRadius: 17 + 'px',
-                      backgroundImage: people_data[index].profile_1.banner === null ? 'url(http://localhost:8080/assets/main/profile_banner_blank.png)' : 'url(' + people_data[index].profile_1.banner + ')', 
-                      backgroundColor: '#607d8bb3',
+                      backgroundImage: w_personCard > 330 ? people_data[index].profile_1.banner === null ? 'url(http://localhost:8080/assets/main/profile_banner_blank.png)' : 'url(' + people_data[index].profile_1.banner + ')' : people_data[index].profile_1.avatar === null ? 'url(http://localhost:8080/assets/main/profile_avatar_blank.png)' : 'url(' + people_data[index].profile_1.avatar + ')', 
                       height: 250 + 'px', 
                       backgroundPosition: 'center',
                       backgroundSize: 'cover'
                     }"
+                    @click="People_Search_Connect(people_data[index].profile_1.name)"
                     class="col-12 padding-none cursor-pointer"
                   >
                     <div
                       class="container h-100 overflow-hidden"
-                      :style="{backgroundColor: '#607d8bb3', borderRadius: 15 + 'px'}"
+                      :style="{borderRadius: 15 + 'px', backgroundColor: w_personCard > 330 ? '#6f8498b3' : 'transparent'}"
                     >
                       <div class="row">
-                        <!-- <div class="col-auto padding-vertical-5">{{people_data[index].name}} as:</div> -->
-                        <div class="col-12 padding-vertical-5" :style="{height: 170 + 'px'}">
+                        <div
+                          v-if="w_personCard > 330"
+                          class="col-12 padding-vertical-5"
+                          :style="{height: 170 + 'px'}"
+                        >
                           <img
                             :style="{
-                              maxWidth: 100 + '%',
-                              maxHeight: 150 + 'px'
+                              width: 'auto',
+                              height: 100 + '%'
                             }"
                             :src="people_data[index].profile_1.avatar === null ? '../../../../assets/main/profile_avatar_blank.png' : people_data[index].profile_1.avatar"
-                            class="border-radius-100 border-dark-4 img-fluid"
+                            class="border-radius-100 border-dark-5 img-fluid"
                             alt="Responsive image"
                           />
                         </div>
+                        <div v-else class="col-12 padding-none" :style="{height: 170 + 'px'}"></div>
                         <div class="container-fluid">
                           <div class="row justify-content-center" :style="{height: 80 + 'px'}">
                             <div
-                              class="col-12 padding-vertical-5 letter-spacing-1 color-5"
-                              :style="{backgroundColor:'#141a1e'}"
+                              class="col-12 padding-vertical-5 letter-spacing-1 color-5 backgroundColor-14"
                             >{{people_data[index].profile_1.name === null ? 'anon' : people_data[index].profile_1.name}}</div>
                           </div>
                         </div>
@@ -114,7 +124,7 @@
 import { mapGetters, mapActions } from "vuex";
 export default {
   computed: {
-    ...mapGetters("app", ["h_dashboard"]),
+    ...mapGetters("app", ["h_dashboard", "w_dashboard", "w_personCard"]),
     ...mapGetters("mydash", ["myDash_logo"]),
     ...mapGetters("people_search", [
       "people_search_icon",
@@ -133,7 +143,11 @@ export default {
   },
   methods: {
     ...mapActions("people_main", ["search_route"]),
-    ...mapActions("people_search", ["People_Search_Focus", "People_Find"])
+    ...mapActions("people_search", [
+      "People_Search_Focus",
+      "People_Search_Connect",
+      "People_Find"
+    ])
   },
   beforeRouteEnter(to, from, next) {
     next(vm => {
@@ -148,6 +162,13 @@ export default {
 </script>
 
 <style lang="scss">
+.profile_connect {
+  max-width: 100%;
+  max-height: 100px;
+}
+.swal2-radio {
+  display: grid !important;
+}
 .my-search {
   border: 1px solid snow !important;
 }

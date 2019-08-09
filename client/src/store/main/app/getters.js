@@ -57,6 +57,12 @@ export function h_dashboard(state, getters, rootState) {
   }
   return state.dashBoard.height - 58;
 }
+export function w_dashboard(state) {
+  return state.dashBoard.width;
+}
+export function w_personCard(state) {
+  return state.personCard.width;
+}
 export function h_36_41vh(state) {
   if (state.app.width > 1200) {
     return "height-41vh";

@@ -15,6 +15,7 @@ export function PEOPLE_SEARCH_FOCUS(state, payload) {
     return;
   }
 }
+
 export function PERSON_INPUT(state, payload) {
   state.person_input = payload;
 }
@@ -22,4 +23,14 @@ export function PEOPLE_LIST(state, payload) {
   console.log(payload);
   state.people_data = payload;
   state.people_list = true;
+}
+
+export function PEOPLE_SEARCH_BACK(state) {
+  state.people_data = [];
+  state.people_list = false;
+  state.people_search_back_hover = false;
+}
+
+export function PEOPLE_SEARCH_BACK_HOVER(state, payload) {
+  state.people_search_back_hover = payload;
 }

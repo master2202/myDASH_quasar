@@ -153,7 +153,7 @@ export default {
         return this.auth_main.email;
       },
       set(val) {
-        this.$store.commit("auth/EMAIL", val);
+        this.$store.commit("auth/EMAIL", val.toLowerCase());
       }
     },
     password: {

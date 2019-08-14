@@ -18,32 +18,63 @@ export function People_Search_Back_Hover({ commit }, payload) {
 }
 
 export async function People_Search_Connect({ commit, rootState }, payload) {
+  // if (rootState.settings_profile.profile._id === payload[0]) {
+  //   return alert("Can not connect with yourself!");
+  // }
+  let person_profile_name = payload[1] !== null ? payload[1] : "anon";
+  let name_1 =
+    rootState.settings_profile.profile.profile_1.name !== null
+      ? rootState.settings_profile.profile.profile_1.name
+      : "Profile 1";
+  let avatar_1 =
+    rootState.settings_profile.profile.profile_1.avatar !== null
+      ? rootState.settings_profile.profile.profile_1.avatar
+      : "../../../../assets/main/profile_avatar_blank.png";
+  let name_2 =
+    rootState.settings_profile.profile.profile_2.name !== null
+      ? rootState.settings_profile.profile.profile_2.name
+      : "Profile 2";
+  let avatar_2 =
+    rootState.settings_profile.profile.profile_2.avatar !== null
+      ? rootState.settings_profile.profile.profile_2.avatar
+      : "../../../../assets/main/profile_avatar_blank.png";
+  let name_3 =
+    rootState.settings_profile.profile.profile_3.name !== null
+      ? rootState.settings_profile.profile.profile_3.name
+      : "Profile 3";
+  let avatar_3 =
+    rootState.settings_profile.profile.profile_3.avatar !== null
+      ? rootState.settings_profile.profile.profile_3.avatar
+      : "../../../../assets/main/profile_avatar_blank.png";
+
   const { value: fruit } = await Vue.swal.fire({
     title:
       "<div class='container'><div class='row'><div class='col-12'>connect with</div><div class='col-12'><strong>" +
-      payload +
-      "</strong></div><div class='col-12'>as:</div></div></div>",
+      person_profile_name +
+      "</strong></div><div class='col-12'><strong>( " +
+      payload[2] +
+      " )</strong></div><div class='col-12'>as:</div></div></div>",
     input: "radio",
     inputOptions: {
       html_1:
         "<div class='container padding-bottom-10 cursor-pointer'><div class='row'><div class='col-12'><img class='border-radius-100 border-dark-5 img-fluid profile_connect margin-horizontal-10' src='" +
-        rootState.settings_profile.profile.profile_1.avatar +
+        avatar_1 +
         "'/><div>" +
-        rootState.settings_profile.profile.profile_1.name +
+        name_1 +
         "</div></div></div></div>",
 
       html_2:
         "<div class='container padding-bottom-10 cursor-pointer'><div class='row'><div class='col-12'><img class='border-radius-100 border-dark-5 img-fluid profile_connect margin-horizontal-10' src='" +
-        rootState.settings_profile.profile.profile_2.avatar +
+        avatar_2 +
         "'/><div>" +
-        rootState.settings_profile.profile.profile_2.name +
+        name_2 +
         "</div></div></div></div>",
 
       html_3:
         "<div class='container cursor-pointer'><div class='row'><div class='col-12'><img class='border-radius-100 border-dark-5 img-fluid profile_connect margin-horizontal-10' src='" +
-        rootState.settings_profile.profile.profile_3.avatar +
+        avatar_3 +
         "'/><div>" +
-        rootState.settings_profile.profile.profile_3.name +
+        name_3 +
         "</div></div></div></div>"
     },
     inputPlaceholder: "Select a fruit",
@@ -71,7 +102,7 @@ export async function People_Find({ commit }, payload) {
     Vue.swal.showLoading();
     const res = await ClientService.peopleData({
       token: localStorage.getItem("token"),
-      person: payload
+      person: payload.toLowerCase()
     });
     if (res.data.people.length === 0) {
       Vue.swal({ title: "Person not found!" });

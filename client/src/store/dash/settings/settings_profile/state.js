@@ -12,10 +12,10 @@ export default {
   profile_edit_active_icon: "edit_active",
 
   // profiles active and non-active icons
-  profile_1_icon: "tab_1",
-  profile_1_active_icon: "tab_1_active",
-  profile_2_icon: "tab_2",
-  profile_2_active_icon: "tab_2_active",
-  profile_3_icon: "tab_3",
-  profile_3_active_icon: "tab_3_active"
+  profile_1_icon: "profile_1",
+  profile_1_active_icon: "profile_1_active",
+  profile_2_icon: "profile_2",
+  profile_2_active_icon: "profile_2_active",
+  profile_3_icon: "profile_3",
+  profile_3_active_icon: "profile_3_active"
 };

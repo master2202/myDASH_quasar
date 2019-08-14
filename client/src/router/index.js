@@ -15,9 +15,9 @@ import Settings_profile from "../views/dash/dashboard/settings/profile/Settings_
 import Settings_account from "../views/dash/dashboard/settings/account/Settings_account.vue";
 // People routes
 import People from "../views/dash/dashboard/People.vue";
-import People_posts from "../views/dash/dashboard/people/People_posts.vue";
-import People_chat from "../views/dash/dashboard/people/People_chat.vue";
-import People_search from "../views/dash/dashboard/people/People_search.vue";
+import People_posts from "../views/dash/dashboard/people/post/People_posts.vue";
+import People_chat from "../views/dash/dashboard/people/chat/People_chat.vue";
+import People_search from "../views/dash/dashboard/people/search/People_search.vue";
 // Apps routes
 import Apps from "../views/dash/dashboard/Apps.vue";
 import Apps_active from "../views/dash/dashboard/apps/Apps_active.vue";

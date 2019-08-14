@@ -63,7 +63,7 @@
             <div class="row justify-content-center padding-none">
               <div
                 :id="'personCard-' + index"
-                class="col-12 col-lg-6 col-xl-4 personCard"
+                class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 personCard"
                 v-for="(item, index) in people_data"
                 :key="index"
               >
@@ -76,7 +76,7 @@
                       backgroundPosition: 'center',
                       backgroundSize: 'cover'
                     }"
-                    @click="People_Search_Connect(people_data[index].profile_1.name)"
+                    @click="People_Search_Connect([people_data[index]._id, people_data[index].profile_1.name, index + 1])"
                     class="col-12 padding-none cursor-pointer"
                   >
                     <div
@@ -100,11 +100,16 @@
                           />
                         </div>
                         <div v-else class="col-12 padding-none" :style="{height: 170 + 'px'}"></div>
-                        <div class="container-fluid">
-                          <div class="row justify-content-center" :style="{height: 80 + 'px'}">
+                        <div
+                          class="container-fluid letter-spacing-1 color-5 backgroundColor-14"
+                          :style="{height: 80 + 'px'}"
+                        >
+                          <div class="row justify-content-center">
                             <div
-                              class="col-12 padding-vertical-5 letter-spacing-1 color-5 backgroundColor-14"
+                              class="col-12 padding-vertical-5 overflow-hidden"
+                              :style="{height: 55 + 'px'}"
                             >{{people_data[index].profile_1.name === null ? 'anon' : people_data[index].profile_1.name}}</div>
+                            <div class="col-12 text-right padding-right-8">{{index + 1}}</div>
                           </div>
                         </div>
                       </div>
@@ -145,6 +150,7 @@ export default {
     ...mapActions("people_main", ["search_route"]),
     ...mapActions("people_search", [
       "People_Search_Focus",
+      "People_Search_Back",
       "People_Search_Connect",
       "People_Find"
     ])
@@ -155,6 +161,7 @@ export default {
     });
   },
   beforeRouteLeave(to, from, next) {
+    this.People_Search_Back();
     this.search_route(false);
     next();
   }

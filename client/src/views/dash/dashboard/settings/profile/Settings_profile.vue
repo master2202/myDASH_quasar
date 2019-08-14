@@ -82,7 +82,7 @@
               <div class="col-12 align-self-end">
                 <div class="row justify-content-center padding-top-10">
                   <div
-                    v-if="profile_edit"
+                    v-if="profile_edit && profile_select !== 'profile_1'"
                     class="col-auto update-button"
                     @click="profile_update([profile_select, 'name'])"
                     :style="{

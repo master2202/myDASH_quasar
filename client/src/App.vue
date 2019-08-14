@@ -392,6 +392,9 @@ div[class*="col"] {
 .padding-right-none {
   padding-right: 0;
 }
+.padding-right-8 {
+  padding-right: 8px;
+}
 // padding-horizontal
 .padding-horizontal-0 {
   padding-left: 0;

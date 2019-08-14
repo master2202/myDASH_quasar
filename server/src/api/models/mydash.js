@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const profile = mongoose.Schema({
   _id: { type: String, required: true },
   name: { type: String, required: true },
+  name_search: { type: Array, required: true },
   lang: { type: String, required: true },
   online: { type: Boolean, required: true },
   main: { type: String, required: true },

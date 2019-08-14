@@ -18,7 +18,7 @@ exports.friends_list = async (req, res, next) => {
 // GET PEOPLE DATA
 exports.people_list = async (req, res, next) => {
   console.log("PERSON: " + req.body.person);
-  const people = await Profile.find({ name: req.body.person }).select({
+  const people = await Profile.find({ name_search: req.body.person }).select({
     name: 1,
     profile_1: 1
   });

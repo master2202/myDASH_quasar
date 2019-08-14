@@ -27,14 +27,17 @@ exports.user_signup = async (req, res, next) => {
       });
       await account.save();
       //create new user (public) db
+      let name_search_arr = req.body.name.toLowerCase().split(" ");
+      name_search_arr.push(req.body.name.toLowerCase());
       const profile = new Profile({
         _id: account._id,
         name: req.body.name,
+        name_search: name_search_arr,
         lang: req.body.lang,
         online: false,
         main: "profile_1",
         profile_1: {
-          name: null,
+          name: req.body.name,
           avatar: null,
           banner: null
         },
@@ -57,7 +60,7 @@ exports.user_signup = async (req, res, next) => {
       });
     }
   } catch (error) {
-    res.status(500).json({ error: error });
+    res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
@@ -154,7 +157,8 @@ exports.account_verify = async (req, res, next) => {
         }
       }
     } catch (error) {
-      console.log("user_signin: 1"), res.status(500).json({ error: error });
+      console.log("user_signin: 1"),
+        res.status(500).json({ error: "Internal Server Error" });
     }
   }
 };

@@ -21,7 +21,7 @@ export async function People_Search_Connect({ commit, rootState }, payload) {
   // if (rootState.settings_profile.profile._id === payload[0]) {
   //   return alert("Can not connect with yourself!");
   // }
-  let person_profile_name = payload[1] !== null ? payload[1] : "anon";
+  let person_profile_name = payload[1] !== null ? payload[1] : "Anonymous";
   let name_1 =
     rootState.settings_profile.profile.profile_1.name !== null
       ? rootState.settings_profile.profile.profile_1.name
@@ -29,7 +29,7 @@ export async function People_Search_Connect({ commit, rootState }, payload) {
   let avatar_1 =
     rootState.settings_profile.profile.profile_1.avatar !== null
       ? rootState.settings_profile.profile.profile_1.avatar
-      : "../../../../assets/main/profile_avatar_blank.png";
+      : "../../../../assets/main/profile_anon.jpg";
   let name_2 =
     rootState.settings_profile.profile.profile_2.name !== null
       ? rootState.settings_profile.profile.profile_2.name
@@ -37,7 +37,7 @@ export async function People_Search_Connect({ commit, rootState }, payload) {
   let avatar_2 =
     rootState.settings_profile.profile.profile_2.avatar !== null
       ? rootState.settings_profile.profile.profile_2.avatar
-      : "../../../../assets/main/profile_avatar_blank.png";
+      : "../../../../assets/main/profile_anon.jpg";
   let name_3 =
     rootState.settings_profile.profile.profile_3.name !== null
       ? rootState.settings_profile.profile.profile_3.name
@@ -45,7 +45,7 @@ export async function People_Search_Connect({ commit, rootState }, payload) {
   let avatar_3 =
     rootState.settings_profile.profile.profile_3.avatar !== null
       ? rootState.settings_profile.profile.profile_3.avatar
-      : "../../../../assets/main/profile_avatar_blank.png";
+      : "../../../../assets/main/profile_anon.jpg";
 
   const { value: fruit } = await Vue.swal.fire({
     title:

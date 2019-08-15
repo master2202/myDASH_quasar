@@ -42,12 +42,12 @@ exports.user_signup = async (req, res, next) => {
           banner: null
         },
         profile_2: {
-          name: null,
+          name: "ANON | 1",
           avatar: null,
           banner: null
         },
         profile_3: {
-          name: null,
+          name: "ANON | 2",
           avatar: null,
           banner: null
         }

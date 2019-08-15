@@ -71,7 +71,7 @@
                   <div
                     :style="{
                       borderRadius: 17 + 'px',
-                      backgroundImage: w_personCard > 330 ? people_data[index].profile_1.banner === null ? 'url(http://localhost:8080/assets/main/profile_banner_blank.png)' : 'url(' + people_data[index].profile_1.banner + ')' : people_data[index].profile_1.avatar === null ? 'url(http://localhost:8080/assets/main/profile_avatar_blank.png)' : 'url(' + people_data[index].profile_1.avatar + ')', 
+                      backgroundImage: w_personCard > 330 ? people_data[index].profile_1.banner === null ? 'url(http://localhost:8080/assets/main/profile_anon.jpg)' : 'url(' + people_data[index].profile_1.banner + ')' : people_data[index].profile_1.avatar === null ? 'url(http://localhost:8080/assets/main/profile_anon.jpg)' : 'url(' + people_data[index].profile_1.avatar + ')', 
                       height: 250 + 'px', 
                       backgroundPosition: 'center',
                       backgroundSize: 'cover'
@@ -94,7 +94,7 @@
                               width: 'auto',
                               height: 100 + '%'
                             }"
-                            :src="people_data[index].profile_1.avatar === null ? '../../../../assets/main/profile_avatar_blank.png' : people_data[index].profile_1.avatar"
+                            :src="people_data[index].profile_1.avatar === null ? '../../../../assets/main/profile_anon.jpg' : people_data[index].profile_1.avatar"
                             class="border-radius-100 border-dark-5 img-fluid"
                             alt="Responsive image"
                           />
@@ -108,7 +108,7 @@
                             <div
                               class="col-12 padding-vertical-5 overflow-hidden"
                               :style="{height: 55 + 'px'}"
-                            >{{people_data[index].profile_1.name === null ? 'anon' : people_data[index].profile_1.name}}</div>
+                            >{{people_data[index].profile_1.name === null ? 'Anonymous' : people_data[index].profile_1.name}}</div>
                             <div class="col-12 text-right padding-right-8">{{index + 1}}</div>
                           </div>
                         </div>

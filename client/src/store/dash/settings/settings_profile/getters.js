@@ -63,7 +63,7 @@ export function profile_banner(state) {
       state.profile.profile_1 === undefined ||
       state.profile.profile_1.banner === null
     ) {
-      return require("../../../../assets/main/profile_banner_blank.png");
+      return require("../../../../assets/main/profile_anon.jpg");
     }
     return state.profile.profile_1.banner;
   }
@@ -72,7 +72,7 @@ export function profile_banner(state) {
       state.profile.profile_2 === undefined ||
       state.profile.profile_2.banner === null
     ) {
-      return require("../../../../assets/main/profile_banner_blank.png");
+      return require("../../../../assets/main/profile_anon.jpg");
     }
     return state.profile.profile_2.banner;
   }
@@ -81,7 +81,7 @@ export function profile_banner(state) {
       state.profile.profile_3 === undefined ||
       state.profile.profile_3.banner === null
     ) {
-      return require("../../../../assets/main/profile_banner_blank.png");
+      return require("../../../../assets/main/profile_anon.jpg");
     }
     return state.profile.profile_3.banner;
   }
@@ -93,7 +93,7 @@ export function profile_avatar(state) {
       state.profile.profile_1 === undefined ||
       state.profile.profile_1.avatar === null
     ) {
-      return require("../../../../assets/main/profile_avatar_blank.png");
+      return require("../../../../assets/main/profile_anon.jpg");
     }
     return state.profile.profile_1.avatar;
   }
@@ -102,7 +102,7 @@ export function profile_avatar(state) {
       state.profile.profile_2 === undefined ||
       state.profile.profile_2.avatar === null
     ) {
-      return require("../../../../assets/main/profile_avatar_blank.png");
+      return require("../../../../assets/main/profile_anon.jpg");
     }
     return state.profile.profile_2.avatar;
   }
@@ -111,7 +111,7 @@ export function profile_avatar(state) {
       state.profile.profile_3 === undefined ||
       state.profile.profile_3.avatar === null
     ) {
-      return require("../../../../assets/main/profile_avatar_blank.png");
+      return require("../../../../assets/main/profile_anon.jpg");
     }
     return state.profile.profile_3.avatar;
   }

@@ -46,8 +46,31 @@ export async function People_Search_Connect({ commit, rootState }, payload) {
     rootState.settings_profile.profile.profile_3.avatar !== null
       ? rootState.settings_profile.profile.profile_3.avatar
       : "../../../../assets/main/profile_anon.jpg";
+  const inputOptions = new Promise(resolve => {
+    resolve({
+      profile_1:
+        "<div class='container padding-bottom-10 cursor-pointer'><div class='row'><div class='col-12'><img class='border-radius-100 border-dark-5 img-fluid profile_connect margin-horizontal-10' src='" +
+        avatar_1 +
+        "'/><div>" +
+        name_1 +
+        "</div></div></div></div>",
 
-  const { value: fruit } = await Vue.swal.fire({
+      profile_2:
+        "<div class='container padding-bottom-10 cursor-pointer'><div class='row'><div class='col-12'><img class='border-radius-100 border-dark-5 img-fluid profile_connect margin-horizontal-10' src='" +
+        avatar_2 +
+        "'/><div>" +
+        name_2 +
+        "</div></div></div></div>",
+
+      profile_3:
+        "<div class='container cursor-pointer'><div class='row'><div class='col-12'><img class='border-radius-100 border-dark-5 img-fluid profile_connect margin-horizontal-10' src='" +
+        avatar_3 +
+        "'/><div>" +
+        name_3 +
+        "</div></div></div></div>"
+    });
+  });
+  Vue.swal({
     title:
       "<div class='container'><div class='row'><div class='col-12'>connect with</div><div class='col-12'><strong>" +
       person_profile_name +
@@ -55,44 +78,23 @@ export async function People_Search_Connect({ commit, rootState }, payload) {
       payload[2] +
       " )</strong></div><div class='col-12'>as:</div></div></div>",
     input: "radio",
-    inputOptions: {
-      html_1:
-        "<div class='container padding-bottom-10 cursor-pointer'><div class='row'><div class='col-12'><img class='border-radius-100 border-dark-5 img-fluid profile_connect margin-horizontal-10' src='" +
-        avatar_1 +
-        "'/><div>" +
-        name_1 +
-        "</div></div></div></div>",
-
-      html_2:
-        "<div class='container padding-bottom-10 cursor-pointer'><div class='row'><div class='col-12'><img class='border-radius-100 border-dark-5 img-fluid profile_connect margin-horizontal-10' src='" +
-        avatar_2 +
-        "'/><div>" +
-        name_2 +
-        "</div></div></div></div>",
-
-      html_3:
-        "<div class='container cursor-pointer'><div class='row'><div class='col-12'><img class='border-radius-100 border-dark-5 img-fluid profile_connect margin-horizontal-10' src='" +
-        avatar_3 +
-        "'/><div>" +
-        name_3 +
-        "</div></div></div></div>"
-    },
+    inputOptions: inputOptions,
     inputPlaceholder: "Select a fruit",
     showCancelButton: true,
     inputValidator: value => {
-      return new Promise(resolve => {
-        if (value === "oranges") {
-          resolve();
-        } else {
-          resolve("You need to select oranges :)");
-        }
-      });
+      if (!value) {
+        return "You need to choose Profile!";
+      }
+
+      // const res = await ClientService.connections_update({
+      //   token: localStorage.getItem("token"),
+      //   update: ["connections", payload[0]]
+      // });
+      commit("people_connect/PEOPLE_CONNECT_UPDATE", payload, { root: true });
+      commit("people_connect/PEOPLE_CONNECT_SELECT", payload[3], { root: true });
+      return this.$router.push("connect");
     }
   });
-
-  if (fruit) {
-    Vue.swal.fire("You selected: " + fruit);
-  }
 }
 
 // send token to server, if success return profile_data

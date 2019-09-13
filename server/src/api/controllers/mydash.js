@@ -65,3 +65,22 @@ exports.profile_update = async (req, res, next) => {
     profile: result
   });
 };
+
+// UPDATE CONNECTIONS
+exports.connections_update = async (req, res, next) => {
+  //
+  const profile = await Profile.findById(req.userData.id);
+  // if data not exist return
+  if (!profile) return res.status(404).json({ message: "Data not exist!" });
+  // else next
+  console.log("update:");
+  console.log(req.body.update);
+  // update and save database
+  profile[req.body.update[0]].push(req.body.update[1]);
+  const result = await profile.save();
+  // response from server
+  res.status(200).json({
+    message: "Data was updated!",
+    connections: result.connections
+  });
+};

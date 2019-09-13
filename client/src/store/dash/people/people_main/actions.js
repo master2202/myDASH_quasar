@@ -14,3 +14,7 @@ export function search_route({ commit, rootState }, payload) {
   rootState.mydash.people_route = payload;
   commit("SEARCH_ROUTE", payload);
 }
+export function connect_route({ commit, rootState }, payload) {
+  rootState.mydash.people_route = payload;
+  commit("CONNECT_ROUTE", payload);
+}

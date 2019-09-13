@@ -26,5 +26,11 @@ export default {
   },
   profile_update(params) {
     return Api().put("mydash/profile/update", params);
+  },
+  connections_data(params) {
+    return Api().post("mydash/connections/data", params);
+  },
+  connections_update(params) {
+    return Api().put("mydash/connections/update", params);
   }
 };

@@ -76,7 +76,7 @@
                       backgroundPosition: 'center',
                       backgroundSize: 'cover'
                     }"
-                    @click="People_Search_Connect([people_data[index]._id, people_data[index].profile_1.name, index + 1])"
+                    @click="People_Search_Connect([people_data[index]._id, people_data[index].profile_1.name, index + 1, 'request'])"
                     class="col-12 padding-none cursor-pointer"
                   >
                     <div

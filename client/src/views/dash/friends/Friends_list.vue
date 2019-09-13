@@ -11,7 +11,7 @@
           <!-- <img :src="friendsList[index].avatar" class="img-fluid" alt="Responsive image" /> -->
         </div>
       </div>
-      <div class="col-12">{{ friendsList[index].name }}</div>
+      <div class="col-12">{{ friendsList[index].profile_1.name }}</div>
       <hr />
     </div>
   </div>

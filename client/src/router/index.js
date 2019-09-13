@@ -18,6 +18,7 @@ import People from "../views/dash/dashboard/People.vue";
 import People_posts from "../views/dash/dashboard/people/post/People_posts.vue";
 import People_chat from "../views/dash/dashboard/people/chat/People_chat.vue";
 import People_search from "../views/dash/dashboard/people/search/People_search.vue";
+import People_connect from "../views/dash/dashboard/people/connect/People_connect.vue";
 // Apps routes
 import Apps from "../views/dash/dashboard/Apps.vue";
 import Apps_active from "../views/dash/dashboard/apps/Apps_active.vue";
@@ -111,6 +112,11 @@ export default function({ store }) {
                 path: "/people/search",
                 component: People_search,
                 name: "search"
+              },
+              {
+                path: "/people/connect",
+                component: People_connect,
+                name: "connect"
               }
             ]
           },

@@ -20,6 +20,8 @@ export function PERSON_INPUT(state, payload) {
   state.person_input = payload;
 }
 export function PEOPLE_LIST(state, payload) {
+  console.log("");
+  console.log("PEOPLE_LIST:");
   console.log(payload);
   state.people_data = payload;
   state.people_list = true;

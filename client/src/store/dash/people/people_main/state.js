@@ -7,5 +7,8 @@ export default {
   chat_outline_active_icon: "chat_outline_active",
   search_route: false,
   search_outline_icon: "search_outline",
-  search_outline_active_icon: "search_outline_active"
+  search_outline_active_icon: "search_outline_active",
+  connect_route: false,
+  connect_outline_icon: "connect_outline",
+  connect_outline_active_icon: "connect_outline_active"
 };

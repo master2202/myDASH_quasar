@@ -32,3 +32,13 @@ export function search_outline_icon(state) {
     state.search_outline_icon +
     ".svg");
 }
+export function connect_outline_icon(state) {
+  if (state.connect_route) {
+    return require("../../../../assets/icons/" +
+      state.connect_outline_active_icon +
+      ".svg");
+  }
+  return require("../../../../assets/icons/" +
+    state.connect_outline_icon +
+    ".svg");
+}

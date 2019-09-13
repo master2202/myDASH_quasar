@@ -24,6 +24,8 @@ export async function profile_data({ state, commit }) {
     //state.loader = false;
     state.profile = res.data.profile;
     commit("PROFILE_SET_SELECT", res.data.profile.main);
+    console.log("");
+    console.log("profile_data:");
     console.log(state.profile);
   } catch (error) {
     //state.loader = false;

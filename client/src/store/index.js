@@ -28,6 +28,7 @@ import people_main from "./dash/people/people_main";
 import people_post from "./dash/people/people_post";
 import people_search from "./dash/people/people_search";
 import people_chat from "./dash/people/people_chat";
+import people_connect from "./dash/people/people_connect";
 // settings
 import settings_main from "./dash/settings/settings_main";
 import settings_profile from "./dash/settings/settings_profile";
@@ -61,6 +62,7 @@ export default function(/* { ssrContext } */) {
       people_post,
       people_search,
       people_chat,
+      people_connect,
       settings_main,
       settings_profile,
       settings_account

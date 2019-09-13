@@ -11,3 +11,6 @@ export function CHAT_ROUTE(state, payload) {
 export function SEARCH_ROUTE(state, payload) {
   state.search_route = payload;
 }
+export function CONNECT_ROUTE(state, payload) {
+  state.connect_route = payload;
+}

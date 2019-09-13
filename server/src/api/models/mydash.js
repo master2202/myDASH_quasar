@@ -8,6 +8,8 @@ const profile = mongoose.Schema({
   lang: { type: String, required: true },
   online: { type: Boolean, required: true },
   main: { type: String, required: true },
+  connections: { type: Array },
+  friends: { type: Array },
   profile_1: {
     name: { type: String },
     avatar: { type: String },

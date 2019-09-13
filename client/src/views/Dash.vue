@@ -207,6 +207,7 @@ export default {
   },
   mounted() {
     // this.$nextTick(() => {
+    console.log('')  
     console.log("myDash Mounted!");
     this.run_myDash();
     this.profile_data();

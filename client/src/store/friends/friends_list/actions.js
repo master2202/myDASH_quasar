@@ -9,6 +9,8 @@ export async function friends_list({ state, commit }) {
     });
     //state.loader = false;
     state.friends = res.data.friends;
+    console.log("");
+    console.log("friendsList:");
     console.log(state.friends);
   } catch (error) {
     //state.loader = false;

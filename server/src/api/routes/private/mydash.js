@@ -27,6 +27,12 @@ router.put(
   checkAuth,
   mydashController.profile_update
 );
+router.put(
+  "/connections/update",
+  setTimeout,
+  checkAuth,
+  mydashController.connections_update
+);
 // get friends list
 router.post("/friends", setTimeout, checkAuth, mydashController.friends_list);
 // get people data
